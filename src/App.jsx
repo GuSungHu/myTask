@@ -1,6 +1,10 @@
 //import { useState } from "react";
 import "./App.css";
+import TaskColumn from "./components/TaskColumn";
 import TaskForm from "./components/TaskForm";
+import todoIcon from "./assets/direct-hit.png";
+import doingIcon from "./assets/glowing-star.png";
+import doneIcon from "./assets/check-mark-button.png";
 
 function App() {
   return (
@@ -8,9 +12,9 @@ function App() {
       <TaskForm />
       <header className="app_header">Header Section</header>
       <main className="app_main">
-        <section className="task_column">section 1</section>
-        <section className="task_column">section 2</section>
-        <section className="task_column">section 3</section>
+        <TaskColumn title="할 일" icon={todoIcon} />
+        <TaskColumn title="진행중" icon={doingIcon} />
+        <TaskColumn title="완 료" icon={doneIcon} />
       </main>
     </div>
   );

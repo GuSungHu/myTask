@@ -1,5 +1,6 @@
 import React from "react";
 import "./TaskForm.css";
+import Tag from "./Tag";
 
 export default function TaskForm() {
   return (
@@ -13,10 +14,10 @@ export default function TaskForm() {
 
         <div className="task_form_bottom_line">
           <div>
-            <button className="tag">HTML</button>
-            <button className="tag">CSS</button>
-            <button className="tag">JavaScript</button>
-            <button className="tag">React</button>
+            <Tag tagName="HTML" />
+            <Tag tagName="CSS" />
+            <Tag tagName="JavaScript" />
+            <Tag tagName="REACT" />
           </div>
           <div>
             <select className="task_status">

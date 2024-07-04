@@ -9,6 +9,11 @@ import { useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  const handleDelete = (taskIndex) => {
+    const newTasks = tasks.filter((task, index) => index !== taskIndex);
+    setTasks(newTasks);
+  };
   return (
     <div className="app">
       <TaskForm setTasks={setTasks} />
@@ -19,21 +24,21 @@ function App() {
           icon={todoIcon}
           tasks={tasks}
           status="todo"
-          //handleDelete={handleDelete}
+          handleDelete={handleDelete}
         />
         <TaskColumn
           title="진행중"
           icon={doingIcon}
           tasks={tasks}
           status="doing"
-          //handleDelete={handleDelete}
+          handleDelete={handleDelete}
         />
         <TaskColumn
           title="완 료"
           icon={doneIcon}
           tasks={tasks}
           status="done"
-          //handleDelete={handleDelete}
+          handleDelete={handleDelete}
         />
       </main>
     </div>

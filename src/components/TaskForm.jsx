@@ -21,7 +21,13 @@ export default function TaskForm({ setTasks }) {
     e.preventDefault();
     console.log(taskData);
     setTasks((prev) => {
-      return [...prev, taskData]; //새 task 추가
+      return [...prev, taskData];
+    });
+    //처음처럼 TaskData를 리셋하기
+    setTaskData({
+      task: "",
+      status: "todo",
+      tags: [],
     });
   };
   //선택한 태그를 tags에 추가한다. (있으면 삭제 없으면 추가)

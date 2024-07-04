@@ -13,7 +13,13 @@ export default function TaskColumn(props) {
         ? props.tasks.map(
             (task, i) =>
               task.status === props.status && (
-                <TaskCard key={i} title={task.task} tags={task.tags} />
+                <TaskCard
+                  key={i}
+                  title={task.task}
+                  tags={task.tags}
+                  handleDelete={props.handleDelete}
+                  index={i}
+                />
               )
           )
         : null}

@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./TaskForm.css";
 import Tag from "./Tag";
 
-export default function TaskForm() {
+export default function TaskForm({ setTasks }) {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
     tags: [],
   });
-  const [task, setTask] = useState("");
-  const [status, setStatus] = useState("");
+  //const [task, setTask] = useState("");
+  //const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +20,9 @@ export default function TaskForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(taskData);
+    setTasks((prev) => {
+      return [...prev, taskData]; //새 task 추가
+    });
   };
   //선택한 태그를 tags에 추가한다. (있으면 삭제 없으면 추가)
   const selectTag = (tag) => {

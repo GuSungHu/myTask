@@ -1,4 +1,3 @@
-import Todo from "../assets/direct-hit.png";
 import TaskCard from "./TaskCard";
 import "./TaskColumn.css";
 
@@ -10,7 +9,14 @@ export default function TaskColumn(props) {
         {props.title}
       </h2>
 
-      <TaskCard />
+      {props.tasks.length > 0
+        ? props.tasks.map(
+            (task, i) =>
+              task.status === props.status && (
+                <TaskCard key={i} title={task.task} tags={task.tags} />
+              )
+          )
+        : null}
     </section>
   );
 }

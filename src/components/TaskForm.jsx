@@ -6,7 +6,7 @@ export default function TaskForm({ setTasks }) {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
-    tags: [],
+    tag: "",
   });
   //const [task, setTask] = useState("");
   //const [status, setStatus] = useState("");
@@ -27,28 +27,22 @@ export default function TaskForm({ setTasks }) {
     setTaskData({
       task: "",
       status: "todo",
-      tags: [],
+      tag: "",
     });
   };
   //선택한 태그를 tags에 추가한다. (있으면 삭제 없으면 추가)
+  // 선택된 태그를 taskData.tag에 설정
   const selectTag = (tag) => {
-    if (taskData.tags.some((item) => item === tag)) {
-      const filterTags = taskData.tags.filter((item) => item !== tag);
-      setTaskData((prev) => {
-        return { ...prev, tags: filterTags };
-      });
-    } else {
-      setTaskData((prev) => {
-        return { ...prev, tags: [...prev.tags, tag] };
-      });
-    }
+    setTaskData((prev) => {
+      return { ...prev, tag: prev.tag === tag ? "" : tag };
+    });
   };
 
-  console.log(taskData.tags); //태그 선택을 확인
+  console.log(taskData.tag); //태그 선택을 확인
 
-  //선택된 태그아이템중 tag가 있으면 true 없으면 false
+  // 선택된 태그 확인
   const checkTag = (tag) => {
-    return taskData.tags.some((item) => item === tag);
+    return taskData.tag === tag;
   };
 
   return (
@@ -66,24 +60,19 @@ export default function TaskForm({ setTasks }) {
         <div className="task_form_bottom_line">
           <div>
             <Tag
-              tagName="HTML"
+              tagName="중요"
               selectTag={selectTag}
-              selected={checkTag("HTML")}
+              selected={checkTag("중요")}
             />
             <Tag
-              tagName="CSS"
+              tagName="보통"
               selectTag={selectTag}
-              selected={checkTag("CSS")}
+              selected={checkTag("보통")}
             />
             <Tag
-              tagName="JavaScript"
+              tagName="여유"
               selectTag={selectTag}
-              selected={checkTag("JavaScript")}
-            />
-            <Tag
-              tagName="REACT"
-              selectTag={selectTag}
-              selected={checkTag("REACT")}
+              selected={checkTag("여유")}
             />
           </div>
           <div>

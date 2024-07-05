@@ -4,7 +4,7 @@ import "./TaskCard.css";
 
 export default function TaskCard({
   title,
-  tags,
+  tag,
   handleDelete,
   index,
   handleStatusChange,
@@ -25,10 +25,8 @@ export default function TaskCard({
       </p>
 
       <div className="task_card_bottom_line">
-        <div className="task_card_tags">
-          {tags.map((tag, i) => (
-            <Tag tagName={tag} key={i} selected={true} />
-          ))}
+        <div className="task_card_tag">
+          {tag && <Tag tagName={tag} selected={true} />}
         </div>
 
         <div className="task_delete">

@@ -16,7 +16,7 @@ export default function TaskColumn(props) {
                 <TaskCard
                   key={i}
                   title={task.task}
-                  tags={task.tags}
+                  tag={task.tag}
                   handleDelete={props.handleDelete}
                   handleStatusChange={props.handleStatusChange}
                   index={i}

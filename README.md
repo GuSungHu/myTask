@@ -1,8 +1,4 @@
-# React + Vite
+# React + Vite 태스크 관리
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 할일과 중요도 선택해서 입력
+- 진행 버튼으로 상태 진행, 쓰레기통으로 삭제 가능

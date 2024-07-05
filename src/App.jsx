@@ -20,10 +20,24 @@ export default function App() {
     setTasks(newTasks);
   };
 
+  const handleStatusChange = (taskIndex) => {
+    const newTasks = tasks.map((task, index) => {
+      if (index === taskIndex) {
+        if (task.status === "todo") {
+          return { ...task, status: "doing" };
+        } else if (task.status === "doing") {
+          return { ...task, status: "done" };
+        }
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
+
   return (
     <div className="app">
       <TaskForm setTasks={setTasks} />
-      <header className="app_header">Header Section</header>
+      <header className="app_header"></header>
       <main className="app_main">
         <TaskColumn
           title="할 일"
@@ -31,6 +45,7 @@ export default function App() {
           tasks={tasks}
           status="todo"
           handleDelete={handleDelete}
+          handleStatusChange={handleStatusChange}
         />
         <TaskColumn
           title="진행중"
@@ -38,6 +53,7 @@ export default function App() {
           tasks={tasks}
           status="doing"
           handleDelete={handleDelete}
+          handleStatusChange={handleStatusChange}
         />
         <TaskColumn
           title="완 료"
@@ -45,6 +61,7 @@ export default function App() {
           tasks={tasks}
           status="done"
           handleDelete={handleDelete}
+          handleStatusChange={handleStatusChange}
         />
       </main>
     </div>

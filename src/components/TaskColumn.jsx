@@ -18,7 +18,9 @@ export default function TaskColumn(props) {
                   title={task.task}
                   tags={task.tags}
                   handleDelete={props.handleDelete}
+                  handleStatusChange={props.handleStatusChange}
                   index={i}
+                  status={task.status}
                 />
               )
           )
